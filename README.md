@@ -32,3 +32,7 @@ minimum number of trainers who can handle the maximum number of topics
 
 # Algorithm To be used:
 As per research above problem is represented as graph in the form of adjacency matrix.
+
+# Progress
+1. def readInput(self, inputfile): Partially completed
+2. def showAll(self): <b><u>completed</u></b> as per the instructions
