@@ -8,6 +8,9 @@ class MinTrainers:
         self.total_uniq_trainers = []
         self.edges = []
 
+    '''
+        This Methods reads input file inputPS13.txt and creates a Adjacency matrix
+    '''
     def read_input(self, input_file):
         try:
             with open(input_file, 'r') as f:
@@ -26,6 +29,7 @@ class MinTrainers:
         except Exception as e:
             print(e)
 
+    # This method create a unique list of subjects that the college would have on the whole
     def create_uniq_list_of_subjects(self):
         first_list = []
         self.total_uniq_subjects = list(first_list)
@@ -34,11 +38,13 @@ class MinTrainers:
 
         self.total_uniq_subjects = sorted(self.total_uniq_subjects)
 
+    # This method create a unique list of trainers
     def create_uniq_list_of_trainers(self):
         for t in self.trainerSubjects:
             self.total_uniq_trainers.append(t[0])
         self.total_uniq_trainers = sorted(list(set(self.total_uniq_trainers)))
 
+    # this method would create a graph using adjacency matrix
     def create_graph(self):
         self.edges = [[0 for i in range(len(self.total_uniq_trainers))] for j in range(len(self.total_uniq_subjects))]
 
@@ -48,6 +54,7 @@ class MinTrainers:
                         self.trainerSubjects[i][1]:
                     self.edges[i][j] = 1
 
+    # this method would display the trainers who can deal given subjects from promptsPS13.txt file
     def display_trainers(self):
         prompt_subject = []
         trainers = []
@@ -68,6 +75,7 @@ class MinTrainers:
                 f.write(trainer + '\n')
             f.write('\n------------------------\n')
 
+    # this method would display the trainers & subjects on the whole read from inputPS13.txt file
     def show_all(self):
         with open('outputPS13.txt', 'a') as f:
             f.write('\n----------Function showAll--------------\n')
