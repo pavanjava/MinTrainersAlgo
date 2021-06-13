@@ -48,6 +48,26 @@ class MinTrainers:
                         self.trainerSubjects[i][1]:
                     self.edges[i][j] = 1
 
+    def display_trainers(self):
+        prompt_subject = []
+        trainers = []
+        with open('promptsPS13.txt') as f:
+            for prompt in f.read().splitlines():
+                prompt_subject.append(prompt.split(':')[1].strip())
+
+        for subject in range(len(prompt_subject)):
+            for i in range(len(self.trainerSubjects)):
+                if prompt_subject[subject] in self.trainerSubjects[i][1]:
+                    trainers.append(self.trainerSubjects[i][0])
+
+        trainers = list(set(trainers))
+        with open('outputPS13.txt', 'a') as f:
+            f.write('\n----------Function showAll--------------\n')
+            f.write('\nList of Trainers who can teach '+','.join(prompt_subject)+'\n')
+            for trainer in trainers:
+                f.write(trainer + '\n')
+            f.write('\n------------------------\n')
+
     def show_all(self):
         with open('outputPS13.txt', 'a') as f:
             f.write('\n----------Function showAll--------------\n')
@@ -62,14 +82,14 @@ class MinTrainers:
             for subject in self.total_uniq_subjects:
                 f.write(subject + '\n')
 
-            for i in self.edges:
-                print(i)
+            f.write('\n------------------------\n')
 
 
 def main():
     min_trainers = MinTrainers()
     min_trainers.read_input('inputPS13.txt')
     min_trainers.show_all()
+    min_trainers.display_trainers()
 
 
 if __name__ == '__main__':
