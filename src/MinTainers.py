@@ -46,7 +46,7 @@ class MinTrainers:
 
     # this method would create a graph using adjacency matrix
     def create_graph(self):
-        self.edges = [[0 for i in range(len(self.total_uniq_trainers))] for j in range(len(self.total_uniq_subjects))]
+        self.edges = [[0 for j in range(len(self.total_uniq_subjects))] for i in range(len(self.total_uniq_trainers))]
 
         for i in range(len(self.total_uniq_trainers)):
             for j in range(len(self.total_uniq_subjects)):
@@ -69,7 +69,7 @@ class MinTrainers:
 
         trainers = list(set(trainers))
         with open('outputPS13.txt', 'a') as f:
-            f.write('\n----------Function showAll--------------\n')
+            f.write('\n----------Function display_trainers--------------\n')
             f.write('\nList of Trainers who can teach '+','.join(prompt_subject)+'\n')
             for trainer in trainers:
                 f.write(trainer + '\n')
@@ -91,6 +91,9 @@ class MinTrainers:
                 f.write(subject + '\n')
 
             f.write('\n------------------------\n')
+
+        for i in self.edges:
+            print(i)
 
 
 def main():
