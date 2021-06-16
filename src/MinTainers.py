@@ -104,19 +104,20 @@ class MinTrainers:
             recruit_list = []
             col_sum = []
             row_sum = []
-            temp_list = min_trainers.edges.copy()
-            for j in range(0, len(min_trainers.total_uniq_subjects)):
+            pos_list = []
+            temp_list = self.edges.copy()
+            for j in range(0, len(self.total_uniq_subjects)):
                 x = 0
-                for i in range(0, len(min_trainers.total_uniq_trainers)):
-                    x = x + min_trainers.edges[i][j]
+                for i in range(0, len(self.total_uniq_trainers)):
+                    x = x + self.edges[i][j]
                 col_sum.append(x)
-                for i in range(0, len(min_trainers.total_uniq_trainers)):
-                    temp_list[i][j] = min_trainers.edges[i][j] / col_sum[j]
+                for i in range(0, len(self.total_uniq_trainers)):
+                    temp_list[i][j] = self.edges[i][j] / col_sum[j]
             for i in temp_list:
                 row_sum.append(sum(i))
-            for j in range(0, len(min_trainers.total_uniq_subjects)):
+            for j in range(0, len(self.total_uniq_subjects)):
                 sub_list = []
-                for i in range(0, len(min_trainers.total_uniq_trainers)):
+                for i in range(0, len(self.total_uniq_trainers)):
                     sub_list.append(temp_list[i][j])
             unique_val = list(set(sub_list))
             unique_val_2 = [x for x in unique_val if x != 0][0]
@@ -124,8 +125,8 @@ class MinTrainers:
             row_vals = [row_sum[n] for n in indices]
             pos_list.append(row_sum.index(max(row_vals)))
             train_req = list(set(pos_list))
-            min_trainers.lines.sort()
-            recruit_list = [min_trainers.lines[n] for n in train_req]
+            self.lines.sort()
+            recruit_list = [self.lines[n] for n in train_req]
 
             with open('outputPS13.txt', 'a') as f:
                 f.write('\n----------Function RecruitList--------------\n')
