@@ -95,6 +95,45 @@ class MinTrainers:
         for i in self.edges:
             print(i)
 
+    def displayRecruitList(self):
+        string1 = "showMinList"
+        with open("promptsPS13.txt") as f:
+            readfile = f.read()
+        if string1 in readfile:
+            train_req = []
+            recruit_list = []
+            col_sum = []
+            row_sum = []
+            temp_list = min_trainers.edges.copy()
+            for j in range(0, len(min_trainers.total_uniq_subjects)):
+                x = 0
+                for i in range(0, len(min_trainers.total_uniq_trainers)):
+                    x = x + min_trainers.edges[i][j]
+                col_sum.append(x)
+                for i in range(0, len(min_trainers.total_uniq_trainers)):
+                    temp_list[i][j] = min_trainers.edges[i][j] / col_sum[j]
+            for i in temp_list:
+                row_sum.append(sum(i))
+            for j in range(0, len(min_trainers.total_uniq_subjects)):
+                sub_list = []
+                for i in range(0, len(min_trainers.total_uniq_trainers)):
+                    sub_list.append(temp_list[i][j])
+            unique_val = list(set(sub_list))
+            unique_val_2 = [x for x in unique_val if x != 0][0]
+            indices = [i for i, x in enumerate(sub_list) if x == unique_val_2]
+            row_vals = [row_sum[n] for n in indices]
+            pos_list.append(row_sum.index(max(row_vals)))
+            train_req = list(set(pos_list))
+            min_trainers.lines.sort()
+            recruit_list = [min_trainers.lines[n] for n in train_req]
+
+            with open('outputPS13.txt', 'a') as f:
+                f.write('\n----------Function RecruitList--------------\n')
+                f.write('No of trainers required to cover all subjects: '
+                        + str(len(train_req)) + '\n')
+                for x in recruit_list:
+                    f.write(str(x) + '\n')
+
 
 def main():
     min_trainers = MinTrainers()
