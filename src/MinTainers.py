@@ -7,10 +7,12 @@ class MinTrainers:
         self.total_uniq_subjects = []
         self.total_uniq_trainers = []
         self.edges = []
+        self.possible_row_combinations = []
 
     '''
         This Methods reads input file inputPS13.txt and creates a Adjacency matrix
     '''
+
     def read_input(self, input_file):
         try:
             with open(input_file, 'r') as f:
@@ -58,22 +60,25 @@ class MinTrainers:
     def display_trainers(self):
         prompt_subject = []
         trainers = []
-        with open('promptsPS13.txt') as f:
-            for prompt in f.read().splitlines():
-                prompt_subject.append(prompt.split(':')[1].strip())
+        try:
+            with open('promptsPS13.txt') as f:
+                for prompt in f.read().splitlines():
+                    prompt_subject.append(prompt.split(':')[1].strip())
 
-        for subject in range(len(prompt_subject)):
-            for i in range(len(self.trainerSubjects)):
-                if prompt_subject[subject] in self.trainerSubjects[i][1]:
-                    trainers.append(self.trainerSubjects[i][0])
+            for subject in range(len(prompt_subject)):
+                for i in range(len(self.trainerSubjects)):
+                    if prompt_subject[subject] in self.trainerSubjects[i][1]:
+                        trainers.append(self.trainerSubjects[i][0])
 
-        trainers = list(set(trainers))
-        with open('outputPS13.txt', 'a') as f:
-            f.write('\n----------Function display_trainers--------------\n')
-            f.write('\nList of Trainers who can teach '+','.join(prompt_subject)+'\n')
-            for trainer in trainers:
-                f.write(trainer + '\n')
-            f.write('\n------------------------\n')
+            trainers = list(set(trainers))
+            with open('outputPS13.txt', 'a') as f:
+                f.write('\n----------Function display_trainers--------------\n')
+                f.write('\nList of Trainers who can teach ' + ','.join(prompt_subject) + '\n')
+                for trainer in trainers:
+                    f.write(trainer + '\n')
+                f.write('\n------------------------\n')
+        except Exception as e:
+            print(e)
 
     # this method would display the trainers & subjects on the whole read from inputPS13.txt file
     def show_all(self):
@@ -95,13 +100,32 @@ class MinTrainers:
         for i in self.edges:
             print(i)
 
+    def printSubArrays(self, arr, start, end):
+        # Stop if we have reached the end of the array
+        if end == len(arr):
+            return
+
+        # Increment the end point and start from 0
+        elif start > end:
+            return self.printSubArrays(arr, 0, end + 1)
+
+        # Print the subarray and increment the starting
+        # point
+        else:
+            if len(arr[start:end + 1]) > 1:
+                self.possible_row_combinations.append(arr[start:end + 1])
+            return self.printSubArrays(arr, start + 1, end)
+
+    def displayRecruitList_bkp(self):
+        self.printSubArrays([i for i in range(len(self.edges))], 0, 0)
+        self.possible_row_combinations.sort(key=lambda t: len(t), reverse=False)
+        print(self.possible_row_combinations)
+
     def displayRecruitList(self):
         string1 = "showMinList"
         with open("promptsPS13.txt") as f:
             readfile = f.read()
         if string1 in readfile:
-            train_req = []
-            recruit_list = []
             col_sum = []
             row_sum = []
             pos_list = []
@@ -128,12 +152,13 @@ class MinTrainers:
             self.lines.sort()
             recruit_list = [self.lines[n] for n in train_req]
 
-            with open('outputPS13.txt', 'a') as f:
-                f.write('\n----------Function RecruitList--------------\n')
-                f.write('No of trainers required to cover all subjects: '
-                        + str(len(train_req)) + '\n')
-                for x in recruit_list:
-                    f.write(str(x) + '\n')
+        with open('outputPS13.txt', 'a') as f:
+            f.write('\n----------Function RecruitList--------------\n')
+            f.write('No of trainers required to cover all subjects: '
+                    + str(len(train_req)) + '\n')
+            for x in recruit_list:
+                f.write(str(x) + '\n')
+
 
 
 def main():
@@ -141,6 +166,8 @@ def main():
     min_trainers.read_input('inputPS13.txt')
     min_trainers.show_all()
     min_trainers.display_trainers()
+    min_trainers.displayRecruitList_bkp()
+    min_trainers.displayRecruitList()
 
 
 if __name__ == '__main__':

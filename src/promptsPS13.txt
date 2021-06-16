@@ -1,1 +1,1 @@
-findSubject: React
+showMinList
