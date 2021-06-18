@@ -63,7 +63,8 @@ class MinTrainers:
         try:
             with open('promptsPS13.txt') as f:
                 for prompt in f.read().splitlines():
-                    prompt_subject.append(prompt.split(':')[1].strip())
+                    if len(prompt.split(':')) > 1:
+                        prompt_subject.append(prompt.split(':')[1].strip())
 
             for subject in range(len(prompt_subject)):
                 for i in range(len(self.trainerSubjects)):
@@ -97,29 +98,10 @@ class MinTrainers:
 
             f.write('\n------------------------\n')
 
+        # TODO: remove this as this just for our debug
         for i in self.edges:
             print(i)
 
-    def printSubArrays(self, arr, start, end):
-        # Stop if we have reached the end of the array
-        if end == len(arr):
-            return
-
-        # Increment the end point and start from 0
-        elif start > end:
-            return self.printSubArrays(arr, 0, end + 1)
-
-        # Print the subarray and increment the starting
-        # point
-        else:
-            if len(arr[start:end + 1]) > 1:
-                self.possible_row_combinations.append(arr[start:end + 1])
-            return self.printSubArrays(arr, start + 1, end)
-
-    def displayRecruitList_bkp(self):
-        self.printSubArrays([i for i in range(len(self.edges))], 0, 0)
-        self.possible_row_combinations.sort(key=lambda t: len(t), reverse=False)
-        print(self.possible_row_combinations)
 
     def displayRecruitList(self):
         string1 = "showMinList"
@@ -160,13 +142,11 @@ class MinTrainers:
                 f.write(str(x) + '\n')
 
 
-
 def main():
     min_trainers = MinTrainers()
     min_trainers.read_input('inputPS13.txt')
     min_trainers.show_all()
     min_trainers.display_trainers()
-    min_trainers.displayRecruitList_bkp()
     min_trainers.displayRecruitList()
 
 
