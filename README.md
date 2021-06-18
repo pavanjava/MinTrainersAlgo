@@ -30,16 +30,12 @@ minimum number of trainers who can handle the maximum number of topics
 2. promptsPS13.txt - ??
 3. outputPS13.txt - used for flushing the output of every method call
 
-# Algorithm To be used:
-As per research above problem is represented as graph in the form of adjacency matrix.
-
-# Progress
-1. def readInput(self, inputfile): <b><u>completed</u></b>
-2. def showAll(self): <b><u>completed</u></b> as per the instructions
-3. def displayRecruitList(self): <b><u><i>Pending</i></u></b>
-4. def displayTrainers(self, subj): <b><u>completed</u></b> as per the instructions
-
 # instruction to run the code
 1. import the code into any of the favourite IDE
 2. just run the .py file
 3. observe the output is captured in outputPS13.txt file
+
+# Algorithm To be used:
+As per research above problem is represented as graph in the form of adjacency matrix.
+
+

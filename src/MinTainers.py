@@ -31,9 +31,12 @@ class MinTrainers:
             self.show_all()
 
         except Exception as e:
-            print("Error"+e)
+            print("Error" + e)
 
-    # This method create a unique list of subjects that the college would have on the whole
+    '''
+        This method create a unique list of subjects that the college would have on the whole
+    '''
+
     def create_uniq_list_of_subjects(self):
         first_list = []
         self.total_uniq_subjects = list(first_list)
@@ -42,13 +45,19 @@ class MinTrainers:
 
         self.total_uniq_subjects = sorted(self.total_uniq_subjects)
 
-    # This method create a unique list of trainers
+    '''
+        This method create a unique list of trainers
+    '''
+
     def create_uniq_list_of_trainers(self):
         for t in self.trainerSubjects:
             self.total_uniq_trainers.append(t[0])
         self.total_uniq_trainers = sorted(list(set(self.total_uniq_trainers)))
 
-    # this method would create a graph using adjacency matrix
+    '''
+        this method would create a graph using adjacency matrix
+    '''
+
     def create_graph(self):
         self.edges = [[0 for j in range(len(self.total_uniq_subjects))] for i in range(len(self.total_uniq_trainers))]
 
@@ -58,7 +67,10 @@ class MinTrainers:
                         self.trainerSubjects[i][1]:
                     self.edges[i][j] = 1
 
-    # this method would display the trainers who can deal given subjects from promptsPS13.txt file
+    '''
+        this method would display the trainers who can deal given subjects from promptsPS13.txt file
+    '''
+
     def display_trainers(self):
         prompt_subject = []
 
@@ -85,7 +97,10 @@ class MinTrainers:
         except Exception as e:
             print("Error" + e)
 
-    # this method would display the trainers & subjects on the whole read from inputPS13.txt file
+    '''
+        this method would display the trainers & subjects on the whole read from inputPS13.txt file
+    '''
+
     def show_all(self):
         try:
             with open('outputPS13.txt', 'a') as f:
@@ -106,6 +121,10 @@ class MinTrainers:
             self.display_recruit_list()
         except Exception as e:
             print("Error:" + e)
+
+    '''
+        This function calculates the cost for every edge and finds the minimal cost of the edges that span maximum subjects
+    '''
 
     def display_recruit_list(self):
         string1 = "showMinList"
@@ -149,6 +168,11 @@ class MinTrainers:
             self.display_trainers()
         except Exception as e:
             print("Error:" + e)
+
+
+'''
+    Driver function to trigger the business logic
+'''
 
 
 def main():
