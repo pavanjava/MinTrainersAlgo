@@ -143,11 +143,11 @@ class MinTrainers:
                 sub_list = []
                 for i in range(0, len(self.total_uniq_trainers)):
                     sub_list.append(temp_list[i][j])
-            unique_val = list(set(sub_list))
-            unique_val_2 = [x for x in unique_val if x != 0][0]
-            indices = [i for i, x in enumerate(sub_list) if x == unique_val_2]
-            row_vals = [row_sum[n] for n in indices]
-            pos_list.append(row_sum.index(max(row_vals)))
+                unique_val = list(set(sub_list))
+                unique_val_2 = [x for x in unique_val if x != 0][0]
+                indices = [i for i, x in enumerate(sub_list) if x == unique_val_2]
+                row_vals = [row_sum[n] for n in indices]
+                pos_list.append(row_sum.index(max(row_vals)))
             train_req = list(set(pos_list))
             self.lines.sort()
             recruit_list = [self.lines[n] for n in train_req]
