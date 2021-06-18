@@ -1,2 +1,3 @@
 showMinList
-findTrainer: AI
+findSubject: ML
+findSubject: DS

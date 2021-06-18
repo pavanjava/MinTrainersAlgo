@@ -28,8 +28,10 @@ class MinTrainers:
             self.create_uniq_list_of_trainers()
             self.create_graph()
 
+            self.show_all()
+
         except Exception as e:
-            print(e)
+            print("Error"+e)
 
     # This method create a unique list of subjects that the college would have on the whole
     def create_uniq_list_of_subjects(self):
@@ -59,7 +61,7 @@ class MinTrainers:
     # this method would display the trainers who can deal given subjects from promptsPS13.txt file
     def display_trainers(self):
         prompt_subject = []
-        trainers = []
+
         try:
             with open('promptsPS13.txt') as f:
                 for prompt in f.read().splitlines():
@@ -67,87 +69,91 @@ class MinTrainers:
                         prompt_subject.append(prompt.split(':')[1].strip())
 
             for subject in range(len(prompt_subject)):
+                trainers = []
                 for i in range(len(self.trainerSubjects)):
                     if prompt_subject[subject] in self.trainerSubjects[i][1]:
                         trainers.append(self.trainerSubjects[i][0])
 
-            trainers = list(set(trainers))
-            with open('outputPS13.txt', 'a') as f:
-                f.write('\n----------Function display_trainers--------------\n')
-                f.write('\nList of Trainers who can teach ' + ','.join(prompt_subject) + '\n')
-                for trainer in trainers:
-                    f.write(trainer + '\n')
-                f.write('\n------------------------\n')
+                trainers = list(set(trainers))
+                with open('outputPS13.txt', 'a') as f:
+                    f.write('\n----------Function display_trainers--------------\n')
+                    f.write('\nList of Trainers who can teach ' + prompt_subject[subject] + '\n')
+                    for trainer in trainers:
+                        f.write(trainer + '\n')
+                    f.write('\n------------------------\n')
+
         except Exception as e:
-            print(e)
+            print("Error" + e)
 
     # this method would display the trainers & subjects on the whole read from inputPS13.txt file
     def show_all(self):
-        with open('outputPS13.txt', 'a') as f:
-            f.write('\n----------Function showAll--------------\n')
-            f.write('Total no. of trainers: ' + str(len(self.total_uniq_trainers)) + '\n')
-            f.write('Total no. of subjects: ' + str(len(self.total_uniq_subjects)) + '\n')
+        try:
+            with open('outputPS13.txt', 'a') as f:
+                f.write('\n----------Function showAll--------------\n')
+                f.write('Total no. of trainers: ' + str(len(self.total_uniq_trainers)) + '\n')
+                f.write('Total no. of subjects: ' + str(len(self.total_uniq_subjects)) + '\n')
 
-            f.write('\nList of trainers:\n')
-            for trainer in self.total_uniq_trainers:
-                f.write(trainer + '\n')
+                f.write('\nList of trainers:\n')
+                for trainer in self.total_uniq_trainers:
+                    f.write(trainer + '\n')
 
-            f.write('\nList of subjects:\n')
-            for subject in self.total_uniq_subjects:
-                f.write(subject + '\n')
+                f.write('\nList of subjects:\n')
+                for subject in self.total_uniq_subjects:
+                    f.write(subject + '\n')
 
-            f.write('\n------------------------\n')
+                f.write('\n------------------------\n')
 
-        # TODO: remove this as this just for our debug
-        for i in self.edges:
-            print(i)
+            self.display_recruit_list()
+        except Exception as e:
+            print("Error:" + e)
 
-
-    def displayRecruitList(self):
+    def display_recruit_list(self):
         string1 = "showMinList"
-        with open("promptsPS13.txt") as f:
-            readfile = f.read()
-        if string1 in readfile:
-            col_sum = []
-            row_sum = []
-            pos_list = []
-            temp_list = self.edges.copy()
-            for j in range(0, len(self.total_uniq_subjects)):
-                x = 0
-                for i in range(0, len(self.total_uniq_trainers)):
-                    x = x + self.edges[i][j]
-                col_sum.append(x)
-                for i in range(0, len(self.total_uniq_trainers)):
-                    temp_list[i][j] = self.edges[i][j] / col_sum[j]
-            for i in temp_list:
-                row_sum.append(sum(i))
-            for j in range(0, len(self.total_uniq_subjects)):
-                sub_list = []
-                for i in range(0, len(self.total_uniq_trainers)):
-                    sub_list.append(temp_list[i][j])
-                unique_val = list(set(sub_list))
-                unique_val_2 = [x for x in unique_val if x != 0][0]
-                indices = [i for i, x in enumerate(sub_list) if x == unique_val_2]
-                row_vals = [row_sum[n] for n in indices]
-                pos_list.append(row_sum.index(max(row_vals)))
-            train_req = list(set(pos_list))
-            self.lines.sort()
-            recruit_list = [self.lines[n] for n in train_req]
+        try:
+            with open("promptsPS13.txt") as f:
+                readfile = f.read()
+            if string1 in readfile:
+                col_sum = []
+                row_sum = []
+                pos_list = []
+                temp_list = self.edges.copy()
+                for j in range(0, len(self.total_uniq_subjects)):
+                    x = 0
+                    for i in range(0, len(self.total_uniq_trainers)):
+                        x = x + self.edges[i][j]
+                    col_sum.append(x)
+                    for i in range(0, len(self.total_uniq_trainers)):
+                        temp_list[i][j] = self.edges[i][j] / col_sum[j]
+                for i in temp_list:
+                    row_sum.append(sum(i))
+                for j in range(0, len(self.total_uniq_subjects)):
+                    sub_list = []
+                    for i in range(0, len(self.total_uniq_trainers)):
+                        sub_list.append(temp_list[i][j])
+                    unique_val = list(set(sub_list))
+                    unique_val_2 = [x for x in unique_val if x != 0][0]
+                    indices = [i for i, x in enumerate(sub_list) if x == unique_val_2]
+                    row_vals = [row_sum[n] for n in indices]
+                    pos_list.append(row_sum.index(max(row_vals)))
+                train_req = list(set(pos_list))
+                self.lines.sort()
+                recruit_list = [self.lines[n] for n in train_req]
 
-        with open('outputPS13.txt', 'a') as f:
-            f.write('\n----------Function RecruitList--------------\n')
-            f.write('No of trainers required to cover all subjects: '
-                    + str(len(train_req)) + '\n')
-            for x in recruit_list:
-                f.write(str(x) + '\n')
+            with open('outputPS13.txt', 'a') as f:
+                f.write('\n----------Function RecruitList--------------\n')
+                f.write('No of trainers required to cover all subjects: '
+                        + str(len(train_req)) + '\n')
+                for x in recruit_list:
+                    f.write(str(x) + '\n')
+
+            self.display_trainers()
+        except Exception as e:
+            print("Error:" + e)
 
 
 def main():
     min_trainers = MinTrainers()
     min_trainers.read_input('inputPS13.txt')
-    min_trainers.show_all()
-    min_trainers.display_trainers()
-    min_trainers.displayRecruitList()
 
 
 if __name__ == '__main__':

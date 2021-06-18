@@ -28,65 +28,22 @@ No of trainers required to cover all subjects: 2
 Meghana/DBMS/DS/AI/COSS
 Raj/ML/DS/DM/MFDS
 
-----------Function showAll--------------
-Total no. of trainers: 7
-Total no. of subjects: 7
+----------Function display_trainers--------------
 
-List of trainers:
-Deepak
-Meghana
-Pavan
-Praveen
+List of Trainers who can teach ML
 Raj
 Sai Srikanth
-Sendhil
-
-List of subjects:
-AI
-COSS
-DBMS
-DM
-DS
-MFDS
-ML
-
-------------------------
-
-----------Function showAll--------------
-Total no. of trainers: 7
-Total no. of subjects: 7
-
-List of trainers:
-Deepak
-Meghana
-Pavan
-Praveen
-Raj
-Sai Srikanth
-Sendhil
-
-List of subjects:
-AI
-COSS
-DBMS
-DM
-DS
-MFDS
-ML
 
 ------------------------
 
 ----------Function display_trainers--------------
 
-List of Trainers who can teach AI
+List of Trainers who can teach DS
+Praveen
 Deepak
-Meghana
 Sendhil
+Raj
 Pavan
+Meghana
 
 ------------------------
-
-----------Function RecruitList--------------
-No of trainers required to cover all subjects: 2
-Meghana/DBMS/DS/AI/COSS
-Raj/ML/DS/DM/MFDS
