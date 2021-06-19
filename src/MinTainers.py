@@ -31,7 +31,7 @@ class MinTrainers:
             self.show_all()
 
         except Exception as e:
-            print("Error" + e)
+            print("Error" + e.__str__())
 
     '''
         This method create a unique list of subjects that the college would have on the whole
@@ -72,30 +72,25 @@ class MinTrainers:
     '''
 
     def display_trainers(self):
-        prompt_subject = []
-
         try:
             with open('promptsPS13.txt') as f:
                 for prompt in f.read().splitlines():
+                    trainers = []
                     if len(prompt.split(':')) > 1:
-                        prompt_subject.append(prompt.split(':')[1].strip())
+                        for i in range(len(self.trainerSubjects)):
+                            if prompt.split(':')[1].strip() in self.trainerSubjects[i][1]:
+                                trainers.append(self.trainerSubjects[i][0])
 
-            for subject in range(len(prompt_subject)):
-                trainers = []
-                for i in range(len(self.trainerSubjects)):
-                    if prompt_subject[subject] in self.trainerSubjects[i][1]:
-                        trainers.append(self.trainerSubjects[i][0])
-
-                trainers = list(set(trainers))
-                with open('outputPS13.txt', 'a') as f:
-                    f.write('\n----------Function display_trainers--------------\n')
-                    f.write('\nList of Trainers who can teach ' + prompt_subject[subject] + '\n')
-                    for trainer in trainers:
-                        f.write(trainer + '\n')
-                    f.write('\n------------------------\n')
+                        trainers = list(set(trainers))
+                        with open('outputPS13.txt', 'a') as f:
+                            f.write('\n----------Function display_trainers--------------\n')
+                            f.write('\nList of Trainers who can teach ' + prompt.split(':')[1].strip() + '\n')
+                            for trainer in trainers:
+                                f.write(trainer + '\n')
+                            f.write('\n------------------------\n')
 
         except Exception as e:
-            print("Error" + e)
+            print("Error:" + e.__str__())
 
     '''
         this method would display the trainers & subjects on the whole read from inputPS13.txt file
@@ -120,7 +115,7 @@ class MinTrainers:
 
             self.display_recruit_list()
         except Exception as e:
-            print("Error:" + e)
+            print("Error:" + e.__str__())
 
     '''
         This function calculates the cost for every edge and finds the minimal cost of the edges that span maximum subjects
@@ -167,7 +162,7 @@ class MinTrainers:
 
             self.display_trainers()
         except Exception as e:
-            print("Error:" + e)
+            print("Error:" + e.__str__())
 
 
 '''

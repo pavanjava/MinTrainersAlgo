@@ -31,19 +31,19 @@ Raj/ML/DS/DM/MFDS
 ----------Function display_trainers--------------
 
 List of Trainers who can teach ML
-Raj
 Sai Srikanth
+Raj
 
 ------------------------
 
 ----------Function display_trainers--------------
 
 List of Trainers who can teach DS
-Praveen
 Deepak
-Sendhil
 Raj
-Pavan
+Praveen
 Meghana
+Pavan
+Sendhil
 
 ------------------------
