@@ -27,3 +27,23 @@ ML
 No of trainers required to cover all subjects: 2
 Meghana/DBMS/DS/AI/COSS
 Raj/ML/DS/DM/MFDS
+
+----------Function display_trainers--------------
+
+List of Trainers who can teach ML
+Sai Srikanth
+Raj
+
+------------------------
+
+----------Function display_trainers--------------
+
+List of Trainers who can teach DS
+Deepak
+Raj
+Praveen
+Meghana
+Pavan
+Sendhil
+
+------------------------
