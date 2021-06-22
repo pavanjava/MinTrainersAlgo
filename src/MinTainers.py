@@ -19,7 +19,7 @@ class MinTrainers:
                 self.lines = f.read().splitlines()
 
             for line in self.lines:
-                line_data = line.split('/')
+                line_data = [obj.strip() for obj in line.split('/')]
                 self.trainerSubjects.append((line_data[0], line_data[1:]))
 
             self.trainerSubjects = sorted(self.trainerSubjects)

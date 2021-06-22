@@ -1,4 +1,4 @@
-Pavan/DM/DS/COSS/MFDS/AI
+Pavan / DM/ DS / COSS / MFDS / AI
 Sai Srikanth/COSS/MFDS/ML
 Praveen/DS/DM/COSS
 Deepak/COSS/AI/DS

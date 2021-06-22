@@ -47,3 +47,52 @@ Pavan
 Sendhil
 
 ------------------------
+
+----------Function showAll--------------
+Total no. of trainers: 7
+Total no. of subjects: 7
+
+List of trainers:
+Deepak
+Meghana
+Pavan
+Praveen
+Raj
+Sai Srikanth
+Sendhil
+
+List of subjects:
+AI
+COSS
+DBMS
+DM
+DS
+MFDS
+ML
+
+------------------------
+
+----------Function RecruitList--------------
+No of trainers required to cover all subjects: 2
+Meghana/DBMS/DS/AI/COSS
+Raj/ML/DS/DM/MFDS
+
+----------Function display_trainers--------------
+
+List of Trainers who can teach ML
+Sai Srikanth
+Raj
+
+------------------------
+
+----------Function display_trainers--------------
+
+List of Trainers who can teach DS
+Raj
+Praveen
+Pavan
+Deepak
+Meghana
+Sendhil
+
+------------------------
