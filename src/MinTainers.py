@@ -17,10 +17,16 @@ class MinTrainers:
         try:
             with open(input_file, 'r') as f:
                 self.lines = f.read().splitlines()
-
-            for line in self.lines:
-                line_data = [obj.strip() for obj in line.split('/')]
-                self.trainerSubjects.append((line_data[0], line_data[1:]))
+            if len(self.lines) > 0:
+                for line in self.lines:
+                    line_data = [obj.strip() for obj in line.split('/')]
+                    any_empty_str = any([obj.strip() == '' for obj in line.split('/')])
+                    if any_empty_str is not True:
+                        self.trainerSubjects.append((line_data[0], line_data[1:]))
+                    else:
+                        raise Exception('Improper Input Data')
+            else:
+                raise Exception('Empty Input File')
 
             self.trainerSubjects = sorted(self.trainerSubjects)
 
@@ -31,7 +37,7 @@ class MinTrainers:
             self.show_all()
 
         except Exception as e:
-            print("Error" + e.__str__())
+            print("Error:" + e.__str__())
 
     '''
         This method create a unique list of subjects that the college would have on the whole

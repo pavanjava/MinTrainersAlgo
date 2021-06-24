@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5eb36579-be3b-4ec8-9b55-4ca8f25217d9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/~$signDocument.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MinTainers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/MinTainers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputPS13.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputPS13.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +88,8 @@
       <workItem from="1624003116260" duration="4870000" />
       <workItem from="1624087085470" duration="2359000" />
       <workItem from="1624339119254" duration="1049000" />
+      <workItem from="1624341070304" duration="1248000" />
+      <workItem from="1624502947303" duration="1177000" />
     </task>
     <servers />
   </component>
@@ -102,8 +104,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/MinTainers.py</url>
-          <line>24</line>
+          <line>29</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/MinTainers.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -113,6 +120,6 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MinTrainersAlgo$MinTainers.coverage" NAME="MinTainers Coverage Results" MODIFIED="1624340303694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/MinTrainersAlgo$MinTainers.coverage" NAME="MinTainers Coverage Results" MODIFIED="1624503518927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>
