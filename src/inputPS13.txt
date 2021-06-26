@@ -1,7 +1,1 @@
-Pavan/DM/DS/COSS/MFDS/AI
-Sai Srikanth/COSS/MFDS/ML
-Praveen/DS/DM/COSS
-Deepak/COSS/AI/DS
-Sendhil/DS/DM/AI/MFDS
-Meghana/DBMS/DS/AI/COSS
-Raj/ML/DS/DM/MFDS
+Pavan / DM/ DS / COSS / MFDS / AI
