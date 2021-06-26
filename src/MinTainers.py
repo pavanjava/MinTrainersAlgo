@@ -137,6 +137,13 @@ class MinTrainers:
                 row_sum = []
                 pos_list = []
                 temp_list = self.edges.copy()
+                for i in temp_list:
+                    counter = 0
+                    for j in range(0, len(i)):
+                        if counter > 4:
+                            i[j] = 0
+                        if float(i[j]) > 0:
+                            counter = counter + 1
                 for j in range(0, len(self.total_uniq_subjects)):
                     x = 0
                     for i in range(0, len(self.total_uniq_trainers)):
@@ -169,6 +176,7 @@ class MinTrainers:
             self.display_trainers()
         except Exception as e:
             print("Error:" + e.__str__())
+
 
 
 '''

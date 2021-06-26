@@ -1,33 +1,50 @@
 
 ----------Function showAll--------------
-Total no. of trainers: 1
-Total no. of subjects: 5
+Total no. of trainers: 8
+Total no. of subjects: 7
 
 List of trainers:
+Deepak
+Maria
+Meghana
 Pavan
+Praveen
+Raj
+Sai Srikanth
+Sendhil
 
 List of subjects:
 AI
 COSS
+DBMS
 DM
 DS
 MFDS
+ML
 
 ------------------------
 
 ----------Function RecruitList--------------
-No of trainers required to cover all subjects: 1
-Pavan / DM/ DS / COSS / MFDS / AI
+No of trainers required to cover all subjects: 3
+Maria/DM/DS/COSS/MFDS/AI/DBMS
+Raj/ML
+Sai Srikanth/COSS/MFDS
 
 ----------Function display_trainers--------------
 
 List of Trainers who can teach ML
+Raj
 
 ------------------------
 
 ----------Function display_trainers--------------
 
 List of Trainers who can teach DS
+Sendhil
+Deepak
+Meghana
 Pavan
+Praveen
+Maria
 
 ------------------------
